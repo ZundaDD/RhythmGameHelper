@@ -1,0 +1,6 @@
+@RhythmGameHelper.API_HostAddress = http://localhost:5104
+
+GET {{RhythmGameHelper.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
