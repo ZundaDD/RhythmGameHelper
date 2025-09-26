@@ -9,4 +9,6 @@ Excels/
 
 *.user
 .env
-*.json
+appsettings.Development.json
+launchSettings.json
+*.override.yml
