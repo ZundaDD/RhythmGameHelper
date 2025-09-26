@@ -1,3 +1,5 @@
+version: '3.8'
+
 services:
   api:
     build:
@@ -6,8 +8,19 @@ services:
     depends_on:
       - db
     environment:
-      - ConnectionStrings__DefaultConnection=Server=db;Port=5432;Database=${POSTGRES_DB};User Id=${POSTGRES_USER};Password=${POSTGRES_PASSWORD}
+      - ConnectionStrings__DefaultConnection=Server=db;Port=${DB_PORT};Database=${POSTGRES_DB};User Id=${POSTGRES_USER};Password=${POSTGRES_PASSWORD}
       - ASPNETCORE_ENVIRONMENT=Development
+
+  dbAdmin:
+    build:
+      context: .
+      dockerfile: RhythmGameHelper.Admin/Dockerfile
+    restart: "no"
+    depends_on:
+      - db
+    environment:
+      - ConnectionStrings__DefaultConnection=Server=db;Port=${DB_PORT};Database=${POSTGRES_DB};User Id=${POSTGRES_USER};Password=${POSTGRES_PASSWORD}
+      - ASPNETCORE_ENVIRONMENT=Production
 
   db:
     image: postgres:latest

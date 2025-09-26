@@ -37,6 +37,7 @@
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
                         
@@ -46,7 +47,7 @@
                                    VerticalAlignment="Center"
                                    Foreground="LightGray"/>
                         <mD:NumericUpDown Margin="5,3,5,3" 
-                                          Grid.Column="1"
+                                          Grid.Column="2"
                                           Value="{Binding PageSize, UpdateSourceTrigger=PropertyChanged}"
                                           Minimum="5"
                                           Maximum="30"/>
