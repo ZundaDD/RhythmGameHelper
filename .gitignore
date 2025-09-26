@@ -11,4 +11,3 @@ Excels/
 .env
 appsettings.Development.json
 launchSettings.json
-*.override.yml
