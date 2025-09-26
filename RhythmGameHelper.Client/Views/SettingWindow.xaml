@@ -1,0 +1,66 @@
+﻿<hc:Window x:Class="RhythmGameHelper.Client.Views.SettingWindow"
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           xmlns:local="clr-namespace:RhythmGameHelper.Client.Views"
+           xmlns:hc="https://handyorg.github.io/handycontrol"
+           xmlns:mD="http://materialdesigninxaml.net/winfx/xaml/themes"
+           mc:Ignorable="d"
+           WindowStyle="None"
+           AllowsTransparency="True"
+           Background="Transparent"
+           WindowStartupLocation="CenterScreen"
+           ResizeMode="NoResize"
+           Height="400" 
+           Width="300">
+    <Border CornerRadius="10" Background="#FF303030" BorderBrush="Gray" BorderThickness="1">
+        <Grid Margin="15" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Foreground="LightGray" 
+                       Grid.Row="0" 
+                       Text="设置" 
+                       TextAlignment="Center"
+                       FontSize="20" 
+                       FontWeight="Bold"/>
+
+            
+
+            <ScrollViewer Grid.Row="2"> 
+                <StackPanel Orientation="Vertical">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        
+                        <TextBlock Text="每页条目数"
+                                   Grid.Column="0"
+                                   Margin="5,3,5,3"
+                                   VerticalAlignment="Center"
+                                   Foreground="LightGray"/>
+                        <mD:NumericUpDown Margin="5,3,5,3" 
+                                          Grid.Column="1"
+                                          Value="{Binding PageSize, UpdateSourceTrigger=PropertyChanged}"
+                                          Minimum="5"
+                                          Maximum="30"/>
+                    </Grid>
+                </StackPanel>
+            </ScrollViewer>
+            
+            <Button Grid.Row="3"
+                    Content="关闭" 
+                    Style="{StaticResource ButtonPrimary}"
+                    HorizontalAlignment="Center" 
+                    Width="50"
+                    Command="{Binding ApplyCloseCommand}"
+                    CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"/>
+        </Grid>
+    </Border>
+</hc:Window>

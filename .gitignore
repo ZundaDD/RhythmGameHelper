@@ -1,0 +1,12 @@
+.DS_Store
+
+[Bb]in/
+[Oo]bj/
+[Pp]ackages/
+
+.vs/
+Excels/
+
+*.user
+.env
+*.json
