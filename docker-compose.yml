@@ -11,7 +11,7 @@ services:
       - ConnectionStrings__DefaultConnection=Server=db;Port=${DB_PORT};Database=${POSTGRES_DB};User Id=${POSTGRES_USER};Password=${POSTGRES_PASSWORD}
       - ASPNETCORE_ENVIRONMENT=Development
 
-  dbAdmin:
+  dbadmin:
     build:
       context: .
       dockerfile: RhythmGameHelper.Admin/Dockerfile
