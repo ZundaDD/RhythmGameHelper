@@ -1,0 +1,1 @@
+docker exec -it rhythmgamehelper_debugger_1 sh
