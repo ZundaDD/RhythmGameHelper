@@ -1,1 +1,1 @@
-docker-compose exec -it rhythmgamehelper_dbadmin_1 dotnet RhythmGameHelper.Admin.dll
+docker exec -it rhythmgamehelper_dbadmin_1 dotnet RhythmGameHelper.Admin.dll
