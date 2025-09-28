@@ -13,3 +13,4 @@ ps1/
 appsettings.Development.json
 launchSettings.json
 connect.ps1
+migration.sh
