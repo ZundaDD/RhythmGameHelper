@@ -11,3 +11,4 @@ Excels/
 .env
 appsettings.Development.json
 launchSettings.json
+connect.ps1
