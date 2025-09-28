@@ -5,8 +5,9 @@
 [Pp]ackages/
 
 .vs/
-Excels/
+ps1/
 
+*.sql
 *.user
 .env
 appsettings.Development.json

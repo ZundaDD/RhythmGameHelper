@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
     api:
         restart: always
@@ -9,8 +7,30 @@ services:
     db:
         restart: always
 
-    proxy:
+    debugger:
+        image: curlimages/curl
+        command: [ "sleep", "infinity" ]
         restart: always
-        ports:
-            - "80:80"
-            - "443:443"
+
+    dbadmin:
+        build:
+            context: .
+            dockerfile: RhythmGameHelper.Admin/Dockerfile
+        restart: "no"
+        depends_on:
+            - db
+        environment:
+            - ConnectionStrings__DefaultConnection=Server=db;Port=${DB_PORT};Database=${POSTGRES_DB};User Id=${POSTGRES_USER};Password=${POSTGRES_PASSWORD}
+            - ASPNETCORE_ENVIRONMENT=Production
+    # proxy:
+    #     image: caddy:latest
+    #     volumes:
+    #         - ./Caddyfile:/etc/caddy/Caddyfile
+    #         - caddy_data:/data
+    #         - caddy_config:/config
+    #     depends_on:
+    #         - api
+    #     restart: always
+    #     ports:
+    #         - "80:80"
+    #         - "443:443"
